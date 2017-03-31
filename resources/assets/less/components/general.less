@@ -1,0 +1,159 @@
+html, body {
+    // overwrite vue-material defaults
+    background: @color-body !important;
+    color: @color-font !important;
+
+    // prepare flexbox layout
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.md-toolbar {
+    margin-bottom: 2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: lighten(@color-primary, 10%) !important;
+    font-size: large;
+
+    a {
+        color: lighten(@color-primary, 10%) !important;
+        transition: 0.4s all ease;
+        text-decoration: none;
+        font-size: large !important;
+
+        &:hover {
+            color: @color-font-inverse !important;
+            text-decoration: none !important;
+        }
+    }
+
+    .md-title {
+        font-weight: 300;
+        align-items: center;
+
+        a {
+            font-size: larger !important;
+
+            .md-icon {
+                margin: -0.18rem 0.2rem 0 0;
+            }
+        }
+    }
+
+    #search {
+        flex: 1;
+        margin: 0 2rem;
+        max-width: 50%;
+
+        .md-icon::after {
+            height: 0;
+        }
+
+        &:not(.active) {
+            * {
+                color: @color-light-gray;
+            }
+            .md-input-container::after {
+                background-color: @color-light-gray;
+            }
+        }
+    }
+
+    #toolbar-links {
+        display: flex;
+        font-weight: 300;
+
+        a {
+            padding: 0 1rem;
+        }
+    }
+
+}
+
+#container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media @xs, @sm {
+        padding: 0 1.1rem;
+    }
+
+}
+
+#auth-panel {
+
+    background: white;
+    width: 100%;
+    max-width: 60rem;
+
+    header {
+        background: #009688;
+        padding: 1rem 2rem;
+
+        h2 {
+            color: @color-font-inverse;
+            font-weight: 100 !important;
+            font-size: xx-large;
+        }
+    }
+
+    .md-layout {
+        padding: 1rem 1rem;
+
+        .md-input-container:first-of-type {
+            margin-top: 0;
+        }
+    }
+
+    #vue-camera {
+        width: 100%;
+    }
+
+}
+
+@keyframes blink {
+    0%,100% {
+        opacity: 1
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.35
+    }
+}
+
+.blink-animation {
+    animation-name: blink;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite
+
+}
+
+.md-speed-dial {
+    position: fixed !important;
+}
+
+#http-error {
+    font-size: xx-large;
+    font-weight: 100;
+    line-height: 2;
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

@@ -1,0 +1,176 @@
+#cloud {
+    width: 100%;
+    align-self: flex-start;
+
+    header {
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-weight: 300;
+            font-size: xx-large;
+            flex: 1;
+        }
+
+        #actions {
+            display: flex;
+
+            .md-button {
+                min-width: 0;
+                min-height: 0;
+                padding: 0 8px;
+            }
+        }
+    }
+
+    #my-files {
+        display: flex;
+        flex-wrap: wrap;
+
+        .md-layout {
+            // breakpoint fixes
+            flex: 0;
+            @media @xs { flex: 0 1 100%; }
+            @media @sm { flex: 0 1  50%; }
+            @media @md { flex: 0 1  33%; }
+            @media @lg { flex: 0 1  25%; }
+            @media @xl { flex: 0 1  15%; }
+        }
+
+        .md-card {
+            flex: 1;
+            margin: 1rem;
+            border: 1px solid @color-light-gray;
+            box-shadow: none;
+
+            .md-card-media {
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                height: 13rem;
+                border-bottom: 1px solid @color-light-gray;
+                font-size: xx-large;
+                font-weight: 100;
+                text-transform: lowercase;
+                color: @color-primary;
+            }
+
+            .md-card-content {
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+
+                .filename  {
+                    flex: 1;
+                    min-width: 0;
+
+                    a {
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        display: block;
+                        transition: 0.25s all ease;
+                        color: @color-font;
+                        font-size: medium;
+
+                        &:hover {
+                            color: @color-primary;
+                            cursor: pointer;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .action {
+                    display: flex;
+                    padding-left: 0.5rem;
+
+                    .md-checkbox {
+                        margin: 0;
+
+                        &:not(.md-checked) {
+                            .md-checkbox-container {
+                                border-color: rgba(204, 204, 204, 1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #no-files {
+        text-align: center;
+        flex: 1;
+        font-size: x-large;
+        font-weight: 300;
+        margin-top: 2rem;
+
+        span {
+            color: @color-primary;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    #my-shares {
+        .md-list {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 1rem;
+
+            .md-list-text-container a {
+                color: @color-primary;
+                text-decoration: none;
+            }
+            .md-button {
+                margin-bottom: 1px !important;
+                transition: all 0.3s ease;
+
+                &:hover > .md-icon {
+                    color: @color-secondary !important;
+                }
+            }
+            .md-divider {
+                margin-left: 70px;
+            }
+            .share-button {
+                padding-left: 7px;
+                margin: 0 13px 0 0;
+            }
+        }
+    }
+}
+
+#quick-action {
+    .md-fab {
+        position: fixed !important;
+    }
+    .md-spinner {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        display: none;
+        z-index: 999;
+    }
+}
+
+#share-link {
+    display: block !important;
+}
+
+#go-to-shares {
+    color: @color-primary;
+    text-decoration: none;
+    font-size: larger;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
